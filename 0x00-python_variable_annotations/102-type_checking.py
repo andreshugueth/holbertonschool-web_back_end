@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """ Using mypy """
 
-from typing import List, Union
+from typing import List, Tuple
 
 
-def zoom_array(lst: List, factor: int = 2) -> List:
-    """zoom array
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """Zoom array
 
     Args:
-        lst (List): List
-        factor (int, optional): [description]. Defaults to 2.
+        lst (Tuple): Tuple
+        factor (int, optional): Number. Defaults to 2.
 
     Returns:
-        List: new list
+        Tuple: New Tuple
     """
     zoomed_in: List = [
         item for item in lst
@@ -21,7 +21,7 @@ def zoom_array(lst: List, factor: int = 2) -> List:
     return zoomed_in
 
 
-array = [12, 72, 91]
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
