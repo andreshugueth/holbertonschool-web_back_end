@@ -5,18 +5,6 @@
 from typing import Callable
 
 
-def operation(value: float) -> float:
-    """operation function
-
-    Args:
-        value (float): multiplier function
-
-    Returns:
-        float: value
-    """
-    return value * value
-
-
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """type-annotated function make_multiplier
 
@@ -27,4 +15,4 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
         Callable[[float], float]:
         function that multiplies a float by multiplier
     """
-    return operation
+    return lambda x: x * multiplier
