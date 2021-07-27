@@ -2,17 +2,16 @@
 """ The basics of async """
 import asyncio
 import random
-from typing import Union
 
 
-async def wait_random(max_delay: int = 10) -> Union[int, float]:
+async def wait_random(max_delay: int = 10) -> float:
     """asynchronous coroutine
 
     Args:
-        max_delay (int): [description]
+        max_delay (int): max delay of waiting
 
     Returns:
-        Union[int, float]: [description]
+        float: float number
     """
     actual_delay = random.uniform(0, max_delay)
     await asyncio.sleep(actual_delay)
