@@ -24,8 +24,7 @@ class Auth():
         for element in excluded_paths:
             if "*" in element:
                 return not(path.startswith(element.replace("*", "")))
-            else:
-                return not(path == element or f'{path}/' == element)
+        return not(path in excluded_paths or f'{path}/' in excluded_paths)
 
     def authorization_header(self, request=None) -> str:
         """public method

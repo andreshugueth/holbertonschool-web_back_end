@@ -12,3 +12,12 @@ print(a.require_auth("/api/v1/status/", ["/api/v1/status/"]))
 print(a.require_auth("/api/v1/status", ["/api/v1/status/"]))
 print(a.require_auth("/api/v1/users", ["/api/v1/status/"]))
 print(a.require_auth("/api/v1/users", ["/api/v1/status/", "/api/v1/stats"]))
+
+print("QA")
+print(a.require_auth("/api/v1/status/", ["/api/v1/status/"]))  # False
+print(a.require_auth("/api/v1/status/",
+      ["/api/v1/stats/", "/api/v1/status/", "/api/v1/users/"]))  # False
+print(a.require_auth("/api/v1/status",
+      ["/api/v1/stats/", "/api/v1/status/", "/api/v1/users/"]))  # False
+print(a.require_auth("/api/v1/users/",
+      ["/api/v1/stats/", "/api/v1/status/"]))  # True
