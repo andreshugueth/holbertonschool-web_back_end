@@ -13,6 +13,11 @@ class SessionAuth(Auth):
     """
     user_id_by_session_id = {}
 
+    @staticmethod
+    def guard_condition(variable):
+        if not variable or not isinstance(variable, str):
+            return None
+
     def create_session(self, user_id: str = None) -> str:
         """Create session method
 
@@ -28,3 +33,16 @@ class SessionAuth(Auth):
         session_id = str(uuid.uuid4())
         self.user_id_by_session_id[session_id] = user_id
         return session_id
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        """User id from session id method
+
+        Args:
+            session_id (str, optional): [description]. Defaults to None.
+
+        Returns:
+            str: [description]
+        """
+        if not SessionAuth.guard_condition(session_id):
+            return None
+        return self.user_id_by_session_id.get(session_id)
