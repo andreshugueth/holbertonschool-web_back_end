@@ -63,9 +63,9 @@ class DB:
         Args:
             user_id (int): User id
         """
-        user = self.find_user_by(id=user_id)
+        _user = self.find_user_by(id=user_id)
         for key, value in kwargs.items():
-            if not hasattr(user, key):
+            if not hasattr(_user, key):
                 raise ValueError
-            setattr(user, key, value)
+            setattr(_user, key, value)
         self._session.commit()
