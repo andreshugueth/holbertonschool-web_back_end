@@ -10,7 +10,7 @@ from config import Config
 app = Flask(__name__)
 babel = Babel(app)
 
-app.config.from_object('config.Config')
+app.config.from_object(Config)
 app.register_blueprint(app_routes)
 
 
