@@ -12,6 +12,8 @@ babel = Babel(app)
 class Config():
     """Config class for babel"""
     LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
 app.register_blueprint(app_routes)
