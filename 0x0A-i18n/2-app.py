@@ -3,12 +3,13 @@
 from flask import Flask, request
 from flask_babel import Babel
 from routes.routes_2 import app_routes
+from config import Config
 
 
 app = Flask(__name__)
 babel = Babel(app)
 
-app.config.from_object('1-app.Config')
+app.config.from_object(Config)
 app.register_blueprint(app_routes)
 
 
@@ -16,7 +17,7 @@ app.register_blueprint(app_routes)
 def get_locale() -> str:
     """ Determine best match for supported languages
     """
-    return request.accept_languages.best_match(['en', 'fr'])
+    return request.accept_languages.best_match(Config.LANGUAGES)
 
 
 if __name__ == "__main__":
