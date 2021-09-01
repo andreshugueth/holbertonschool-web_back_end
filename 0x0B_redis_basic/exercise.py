@@ -16,7 +16,7 @@ def count_calls(method: Callable) -> Callable:
     def wrapper(self, *args, **kwargs):
         """increments the count for that key every time the method
         is called and returns the value returned by the original method """
-        self._redis.incrby(key, 1)
+        self._redis.incr(key)
         return method(self, *args, **kwargs)
     return wrapper
 
