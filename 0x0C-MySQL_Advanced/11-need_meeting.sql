@@ -1,6 +1,6 @@
 -- List all students with a score under 80 and no meetings in the past month
 DROP VIEW IF EXISTS need_meeting;
-CREATE VIEW need_meeting
+CREATE VIEW need_meeting AS
 SELECT name
 FROM students
 WHERE SCORE < 80
